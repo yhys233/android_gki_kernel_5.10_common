@@ -1,5 +1,4 @@
 #!/bin/bash
-taskset -c 0-3 $$
 set -euo pipefail
 KERNEL_DIR="$PWD"
 CLANG_PATH="/opt/clang-r416183b"
