@@ -1,6 +1,5 @@
 #!/bin/bash
 taskset -c 0-3 $$
-exec nice -n 10 "$0" "$@"
 set -euo pipefail
 KERNEL_DIR="$PWD"
 CLANG_PATH="/opt/clang-r416183b"
