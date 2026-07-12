@@ -1,4 +1,6 @@
 #!/bin/bash
+taskset -c 0-3 $$
+exec nice -n 10 "$0" "$@"
 set -euo pipefail
 KERNEL_DIR="$PWD"
 CLANG_PATH="/opt/clang-r416183b"
@@ -36,7 +38,7 @@ start_time=$(date +%s)
 # 编译命令直接写死版本，无点无下划线无前缀符号
 make CC="ccache clang" -j$(nproc) O=out gki_defconfig
 make CC="ccache clang" -j$(nproc) O=out olddefconfig prepare
-make CC="ccache clang" LD=ld.lld LOCALVERSION="-android12-9-00288" -j1 O=out 2>&1 | tee "${WORK_ROOT}/build.log"
+make CC="ccache clang" LD=ld.lld LOCALVERSION="-android12-9-00288" -j4 O=out 2>&1 | tee "${WORK_ROOT}/build.log"
 
 # 计算编译耗时
 end_time=$(date +%s)
