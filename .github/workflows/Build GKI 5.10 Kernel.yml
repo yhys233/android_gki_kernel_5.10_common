@@ -73,7 +73,7 @@ jobs:
           BUILD_DATE=$(date +%Y%m%d)
           echo "BUILD_DATE=${BUILD_DATE}" >> $GITHUB_ENV
           ZIP_NAME="AnyKernel3-android12-5.10.252-2026-04_r1-star0-yhys233-noroot-release-${BUILD_DATE}.zip"
-          git clone --depth=1 -b 4.19-gauguin https://github.com/yhys233/Anykernel3 AnyKernel3
+          git clone --depth=1 -b 5.10-diting https://github.com/yhys233/Anykernel3 AnyKernel3
           cp kernel/out/arch/arm64/boot/Image AnyKernel3/
           cd AnyKernel3
           # 完全移除机型校验sed修改
